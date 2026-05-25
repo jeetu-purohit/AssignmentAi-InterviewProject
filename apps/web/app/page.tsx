@@ -31,7 +31,7 @@ export default function Dashboard() {
   useEffect(() => {
     if (!isGenerating || !assignmentId) return;
 
-    const socket = io('api-production-45794.up.railway.app');
+    const socket = io('https://api-production-45794.up.railway.app');
 
     socket.on('connect', () => {
       console.log('Connected to socket, joining room:', assignmentId);

@@ -63,9 +63,25 @@ export const useAssignmentStore = create<AssignmentState>((set) => ({
 
   fetchAssignments: async () => {
     try {
-      const response = await fetch('api-production-45794.up.railway.app/api/assignments');
-      const data = await response.json();
-      set({ pastAssignments: data });
+      // 1. MUST include https://
+      const response = await fetch('https://api-production-45794.up.railway.app/api/assignments');
+      
+      // 2. Safeguard: Check if the response is HTML instead of JSON
+      const contentType = response.headers.get("content-type");
+      if (contentType && contentType.indexOf("application/json") === -1) {
+        const text = await response.text();
+        console.error("❌ Expected JSON, but received HTML. The backend might be down.");
+        console.error("HTML Preview:", text.substring(0, 200));
+        return;
+      }
+
+      // 3. Safely parse the JSON
+      if (response.ok) {
+        const data = await response.json();
+        set({ pastAssignments: data });
+      } else {
+        console.error("❌ Backend returned an error status:", response.status);
+      }
     } catch (error) {
       console.error('Error fetching assignments:', error);
     }
