@@ -4,6 +4,8 @@ An AI-powered assessment generation platform built for the **AssignmentAI Engine
 
 Teachers can configure exam details such as marks, question types, and due dates. The system generates structured question papers asynchronously using an LLM and delivers results in real time.
 
+Live link : https://assignment-ai-interview-project-web.vercel.app/
+
 ## Tech Stack
 
 ### Frontend (`/apps/web`)
