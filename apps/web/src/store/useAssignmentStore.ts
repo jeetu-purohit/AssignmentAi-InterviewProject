@@ -61,7 +61,7 @@ export const useAssignmentStore = create<AssignmentState>((set) => ({
 
   fetchAssignments: async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/assignments');
+      const response = await fetch('api-production-45794.up.railway.app/api/assignments');
       const data = await response.json();
       set({ pastAssignments: data });
     } catch (error) {
