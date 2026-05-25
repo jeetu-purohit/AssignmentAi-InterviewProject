@@ -86,8 +86,8 @@ app.post('/api/assignments', async (req, res) => {
 
 app.get('/api/assignments', async (req, res) => {
   try {
-    // We sort by _id descending to get the newest ones first
-    const assignments = await Assignment.find().sort({ _id: -1 });
+    // We use the $ne (Not Equal) operator to filter out FAILED assignments
+    const assignments = await Assignment.find({ status: { $ne: 'FAILED' } }).sort({ _id: -1 });
     res.json(assignments);
   } catch (error) {
     res.status(500).json({ error: 'Failed to fetch assignments' });
