@@ -19,6 +19,8 @@ interface AssignmentState extends CreateAssignmentDTO {
   setGenerating: (isGenerating: boolean, assignmentId?: string | null) => void;
   setGeneratedPaper: (paper: QuestionPaper) => void;
   resetForm: () => void;
+
+  fetchAssignments: () => Promise<void>;
 }
 
 const initialState = {
