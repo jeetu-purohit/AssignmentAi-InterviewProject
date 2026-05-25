@@ -1,0 +1,62 @@
+# Dependencies
+node_modules
+.pnpm-store
+.npm
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# Turborepo
+.turbo
+
+# Build outputs
+dist
+build
+out
+coverage
+.next
+.nuxt
+.svelte-kit
+storybook-static
+
+# TypeScript
+*.tsbuildinfo
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDEs / Editors
+.vscode/*
+!.vscode/extensions.json
+.idea
+
+# Testing
+coverage
+
+# Temporary files
+tmp
+temp
+.cache
+
+# Package manager lockfiles (choose ONE strategy)
+# Uncomment only if you intentionally don't commit lockfiles
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
